@@ -1,0 +1,1 @@
+{"serie":"tst_234","muestra":{"mediciones":[{"type":"temperatura","unidadTemperatura":"FAHRENHEIT","valor":0.0},{"type":"humedad","unidadHumedad":"PENCENT","valor":0.0}],"fechaRegistro":null},"intervaloTiempo":10,"protocolo":{"type":"mqtt","broker":"tcp://broker.emqx.io:1883","clientId":"sensor_tst_234","topic":"sensor/gateway1"}}

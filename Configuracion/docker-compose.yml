@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0.18
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    restart: always
+
+  rabbitmq:
+    image: "rabbitmq:latest"
+    container_name: rabbitmq-container
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: root
+      RABBITMQ_DEFAULT_PASS: 1234

@@ -1,0 +1,1 @@
+{"serie":"ght_567","muestra":{"mediciones":[{"type":"temperatura","unidadTemperatura":"FAHRENHEIT","valor":0.0},{"type":"humedad","unidadHumedad":"PENCENT","valor":0.0}],"fechaRegistro":null},"intervaloTiempo":10,"protocolo":{"type":"coap","coapServerUri":"coap://localhost:5683/gateway1"}}
