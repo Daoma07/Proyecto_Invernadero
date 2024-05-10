@@ -7,26 +7,26 @@
  *
  * @author Daniel
  */
+import com.example.Coleccion_Sensores.domain.Sensor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import dao.ISensorDAO;
-import dao.SensorDAO;
+import com.example.Coleccion_Sensores.dao.ISensorDAO;
+import com.example.Coleccion_Sensores.dao.impl.SensorDAO;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-import sensor.medicion.unidad.UnidadHumedad;
-import sensor.medicion.unidad.UnidadTemperatura;
-import sensor.medicion.Humedad;
-import sensor.Muestra;
-import sensor.medicion.Temperatura;
-import protocolo.IProtocolo;
-import protocolo.ProtocoloCoap;
-import protocolo.ProtocoloMqtt;
-import sensor.*;
-import sensor.medicion.IMedicion;
+import com.example.Coleccion_Sensores.domain.medicion.unidad.UnidadHumedad;
+import com.example.Coleccion_Sensores.domain.medicion.unidad.UnidadTemperatura;
+import com.example.Coleccion_Sensores.domain.medicion.impl.Humedad;
+import com.example.Coleccion_Sensores.domain.Muestra;
+import com.example.Coleccion_Sensores.domain.medicion.impl.Temperatura;
+import com.example.Coleccion_Sensores.protocolo.IProtocolo;
+import com.example.Coleccion_Sensores.protocolo.impl.ProtocoloCoap;
+import com.example.Coleccion_Sensores.protocolo.impl.ProtocoloMqtt;
+import com.example.Coleccion_Sensores.domain.medicion.IMedicion;
 
 public class NewMain {
 

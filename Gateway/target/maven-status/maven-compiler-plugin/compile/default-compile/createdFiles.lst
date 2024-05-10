@@ -1,8 +1,10 @@
 NewMain.class
 protocol\server\rabbit\ProtocolSenderRabbit.class
+observer\IObserver.class
 utils\MessageFormat.class
 gateway\Gateway.class
 protocol\sensor\coap\ProtocolReceiverCoap$1.class
+observer\IObservable.class
 utils\Data.class
 Rabbit.class
 protocol\IProtocolReceiver.class
@@ -12,5 +14,6 @@ protocol\sensor\mqtt\ProtocolReceiverMqqt.class
 protocol\sensor\coap\ProtocolReceiverCoap.class
 gateway\IGateway.class
 protocol\IProtocolSender.class
+View\Monitor.class
 message_process\MessageProcessCoap.class
 protocol\sensor\mqtt\ProtocolReceiverMqqt$1.class
