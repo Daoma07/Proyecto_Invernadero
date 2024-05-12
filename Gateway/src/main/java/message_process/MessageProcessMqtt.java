@@ -25,7 +25,7 @@ public class MessageProcessMqtt implements IMessageProcess {
     }
 
     @Override
-    public String messageFormat(String message) {
+    public MessageFormat messageFormat(String message) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode rootNode = mapper.readTree(message);
@@ -49,8 +49,8 @@ public class MessageProcessMqtt implements IMessageProcess {
                 data.add(dataItem);
             }
             messageFormat = new MessageFormat(serie, date, data, interval);
-            String json = mapper.writeValueAsString(messageFormat);
-            return json;
+
+            return messageFormat;
         } catch (JsonProcessingException e) {
             return null;
         }

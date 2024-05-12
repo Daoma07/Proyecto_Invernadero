@@ -28,24 +28,24 @@ public class NewMain {
 
         //Sensores
         List<IProtocolReceiver> receivers = new ArrayList<>();
-        
+
         String broker = "tcp://broker.emqx.io:1883";
         String clientId = "gateway";
         String topic = "sensor/gateway1";
         ProtocolReceiverMqqt protocolReceiverMqtt = new ProtocolReceiverMqqt(broker, clientId, topic);
         protocolReceiverMqtt.setGateway(gateway);
         receivers.add(protocolReceiverMqtt);
-        
+
         String resource = "gateway1";
         ProtocolReceiverCoap protocolReceiverCoap = new ProtocolReceiverCoap(resource);
         protocolReceiverCoap.setGateway(gateway);
         receivers.add(protocolReceiverCoap);
 
         //Server
-        IProtocolSender sender = new ProtocolSenderRabbit("server");
+        IProtocolSender sender = new ProtocolSenderRabbit("server", "gateway");
         gateway.setSensors(receivers);
         gateway.setServer(sender);
-        
+
         gateway.startGateway();
 
         //pantalla
@@ -53,5 +53,5 @@ public class NewMain {
         gateway.agregarObservador(monitor);
         monitor.setVisible(true);
     }
-    
+
 }

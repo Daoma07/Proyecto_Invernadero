@@ -4,11 +4,13 @@
  */
 package message_process;
 
+import utils.MessageFormat;
+
 /**
  *
  * @author Daniel
  */
 public interface IMessageProcess {
 
-    public String messageFormat(String message);
+    public MessageFormat messageFormat(String message);
 }

@@ -14,17 +14,24 @@ import com.rabbitmq.client.DeliverCallback;
  */
 public class Rabbit {
 
-    private final static String QUEUE_NAME = "server";
+    private final static String EXCHANGE_NAME = "server";
+    private final static String BINDING_KEY = "gateway"; // Escucha todos los mensajes
 
     public static void main(String[] argv) throws Exception {
-        // Configurar la conexión y el canal
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost"); // Cambia esto según la configuración de tu servidor RabbitMQ
+        factory.setHost("localhost");
         factory.setUsername("root");
         factory.setPassword("1234");
         Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();// Declarar la cola
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        Channel channel = connection.createChannel();
+
+        // Declara el intercambio de tipo "topic"
+        channel.exchangeDeclare(EXCHANGE_NAME, "topic");
+
+        // Declara una cola temporal y la enlaza al intercambio
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, EXCHANGE_NAME, BINDING_KEY);
+
         System.out.println("Esperando mensajes. Para salir, presiona Ctrl+C");
 
         // Definir el callback para procesar los mensajes recibidos
@@ -36,9 +43,8 @@ public class Rabbit {
         };
 
         // Registrar el consumidor en la cola
-        channel.basicConsume(QUEUE_NAME, true, deliverCallback, consumerTag -> {
+        channel.basicConsume(queueName, false, deliverCallback, consumerTag -> {
         });
-
     }
 
 }

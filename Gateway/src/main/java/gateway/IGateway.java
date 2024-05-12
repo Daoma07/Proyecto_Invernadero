@@ -4,12 +4,14 @@
  */
 package gateway;
 
+import utils.MessageFormat;
+
 /**
  *
  * @author Daniel
  */
 public interface IGateway {
 
-    public void processMessage(String message);
+    public void processMessage(MessageFormat message);
 
 }

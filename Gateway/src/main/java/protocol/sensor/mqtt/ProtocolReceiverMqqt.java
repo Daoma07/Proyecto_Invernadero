@@ -18,6 +18,7 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+import utils.MessageFormat;
 
 /**
  *
@@ -70,7 +71,7 @@ public class ProtocolReceiverMqqt implements IProtocolReceiver {
     }
 
     private void processMessage(String message) {
-        String proccesMessage = messageProcess.messageFormat(message);
+        MessageFormat proccesMessage = messageProcess.messageFormat(message);
         gateway.processMessage(proccesMessage);
     }
 

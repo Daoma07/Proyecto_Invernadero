@@ -12,6 +12,7 @@ import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.CoapServer;
 import org.eclipse.californium.core.coap.CoAP;
 import org.eclipse.californium.core.server.resources.CoapExchange;
+import utils.MessageFormat;
 
 /**
  *
@@ -44,7 +45,7 @@ public class ProtocolReceiverCoap implements IProtocolReceiver {
     }
 
     private void processMessage(String message) {
-        String proccesMessage = messageProcess.messageFormat(message);
+        MessageFormat proccesMessage = messageProcess.messageFormat(message);
         gateway.processMessage(proccesMessage);
     }
 
