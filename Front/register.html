@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <section class="container">
+        <main class="form-outer">
+            <form action="#">
+                <section class="page slidepage">
+                    <div class="title">Crear Cuenta</div>
+                    <div class="field">
+                        <div class="label">Nombre</div>
+                        <input type="text" id="textsend1" placeholder="Escribe tu nombre...">
+                    </div>
+                    <div class="field">
+                        <div class="label">Apellido Paterno</div>
+                        <input type="text" placeholder="Escribe tu Apellido ...">
+                    </div>
+                    <div class="field nextBtn">
+                        <button type="submit" id="button1">Siguiente</button>
+                    </div>
+                </section>
+
+                <section class="page">
+                    <div class="field">
+                        <div class="label">Dirección</div>
+                        <input type="text" placeholder="Escribe tu dirección...">
+                    </div>
+                    <div class="field">
+                        <div class="label">Fecha Nacimiento</div>
+                        <input type="date">
+                    </div>
+                    <div class="field buttons">
+                        <button class="prev-1 prev">Anterior</button>
+                        <button class="next-1 next">Siguiente</button>
+                    </div>
+                </section>
+
+                <section class="page">
+                    <div class="title">Información de Contacto</div>
+                    <div class="field">
+                        <div class="label">Correo Electrónico</div>
+                        <input type="email" id="textsend" placeholder="Escribe tu Email...">
+                    </div>
+                    <div class="field">
+                        <div class="label">Contraseña</div>
+                        <input type="password" id="password" placeholder="Escribe tu Contraseña...">
+                        <label for="showPassword" class="show-password-label">
+                            <input type="checkbox" id="showPassword"> Mostrar Contraseña
+                        </label>
+                    </div>
+                    
+                    
+                    <div class="field">
+                        <div class="label">Confirmar Contraseña</div>
+                        <input type="password" id="confirmPassword" placeholder="Escribe tu Contraseña...">
+                        <label for="showConfirmPassword" class="show-password-label">
+                            <input type="checkbox" id="showConfirmPassword"> Mostrar Contraseña
+                        </label>
+                    </div>
+                    
+                    <div class="field buttons">
+                        <button class="prev-2 prev">Anterior</button>
+                        <button class="submit next">Registrar</button>
+                    </div>
+                </section>
+            </form>
+
+        </main>
+        <script src="script.js"></script>
+
+</body>
+</html>
