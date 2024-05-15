@@ -12,32 +12,32 @@ public class SensorDto implements Serializable {
     private String gateway;
     private List<MuestraDto> muestrasDtos;
     private Long id_invernadero;
-    private List<AlarmaDto> alarmaDtos;
+    private List<Long> id_alarmas_dtos;
     private List<Long> ids_sensor_umbral;
 
     public SensorDto() {
     }
 
-    public SensorDto(String serie, String localizacion, String protocolo, String gateway, Long id_invernadero) {
+    public SensorDto(String serie, String localizacion, String protocolo, String gateway, List<MuestraDto> muestrasDtos) {
         this.serie = serie;
         this.localizacion = localizacion;
         this.protocolo = protocolo;
         this.gateway = gateway;
-        this.id_invernadero = id_invernadero;
+        this.muestrasDtos = muestrasDtos;
     }
 
-    public SensorDto(String serie, String localizacion, String protocolo, String gateway, List<MuestraDto> muestrasDtos, Long id_invernadero, List<AlarmaDto> alarmaDtos, List<Long> ids_sensor_umbral) {
+    public SensorDto(String serie, String localizacion, String protocolo, String gateway, List<MuestraDto> muestrasDtos, Long id_invernadero, List<Long> id_alarmas_dtos, List<Long> ids_sensor_umbral) {
         this.serie = serie;
         this.localizacion = localizacion;
         this.protocolo = protocolo;
         this.gateway = gateway;
         this.muestrasDtos = muestrasDtos;
         this.id_invernadero = id_invernadero;
-        this.alarmaDtos = alarmaDtos;
+        this.id_alarmas_dtos = id_alarmas_dtos;
         this.ids_sensor_umbral = ids_sensor_umbral;
     }
 
-    public SensorDto(Long id_sensor, String serie, String localizacion, String protocolo, String gateway, List<MuestraDto> muestrasDtos, Long id_invernadero, List<AlarmaDto> alarmaDtos, List<Long> ids_sensor_umbral) {
+    public SensorDto(Long id_sensor, String serie, String localizacion, String protocolo, String gateway, List<MuestraDto> muestrasDtos, Long id_invernadero, List<Long> id_alarmas_dtos, List<Long> ids_sensor_umbral) {
         this.id_sensor = id_sensor;
         this.serie = serie;
         this.localizacion = localizacion;
@@ -45,7 +45,7 @@ public class SensorDto implements Serializable {
         this.gateway = gateway;
         this.muestrasDtos = muestrasDtos;
         this.id_invernadero = id_invernadero;
-        this.alarmaDtos = alarmaDtos;
+        this.id_alarmas_dtos = id_alarmas_dtos;
         this.ids_sensor_umbral = ids_sensor_umbral;
     }
 
@@ -105,12 +105,12 @@ public class SensorDto implements Serializable {
         this.id_invernadero = id_invernadero;
     }
 
-    public List<AlarmaDto> getAlarmaDtos() {
-        return alarmaDtos;
+    public List<Long> getId_alarmas_dtos() {
+        return id_alarmas_dtos;
     }
 
-    public void setAlarmaDtos(List<AlarmaDto> alarmaDtos) {
-        this.alarmaDtos = alarmaDtos;
+    public void setId_alarmas_dtos(List<Long> id_alarmas_dtos) {
+        this.id_alarmas_dtos = id_alarmas_dtos;
     }
 
     public List<Long> getIds_sensor_umbral() {
@@ -123,7 +123,7 @@ public class SensorDto implements Serializable {
 
     @Override
     public String toString() {
-        return "SensorDto{" + "id_sensor=" + id_sensor + ", serie=" + serie + ", localizacion=" + localizacion + ", protocolo=" + protocolo + ", gateway=" + gateway + ", muestrasDtos=" + muestrasDtos + ", id_invernadero=" + id_invernadero + ", alarmaDtos=" + alarmaDtos + ", ids_sensor_umbral=" + ids_sensor_umbral + '}';
+        return "SensorDto{" + "id_sensor=" + id_sensor + ", serie=" + serie + ", localizacion=" + localizacion + ", protocolo=" + protocolo + ", gateway=" + gateway + ", muestrasDtos=" + muestrasDtos + ", id_invernadero=" + id_invernadero + ", id_alarmas_dtos=" + id_alarmas_dtos + ", ids_sensor_umbral=" + ids_sensor_umbral + '}';
     }
 
 }
