@@ -1,0 +1,37 @@
+package com.example.Administrador_Sensores.service.impl;
+
+import com.example.Administrador_Sensores.entity.Muestra;
+import com.example.Administrador_Sensores.mapper.MuestraMapper;
+import com.example.Administrador_Sensores.repository.MuestraRepository;
+import com.example.Administrador_Sensores.service.MuestarService;
+import com.mycompany.utilities.dto.MuestraDto;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class MuestraServiceImpl implements MuestarService {
+
+    @Autowired
+    private MuestraRepository muestraRepository;
+
+    @Autowired
+    private MuestraMapper muestraMapper;
+
+    @Override
+    public MuestraDto createMuestra(MuestraDto muestraDto) {
+        Muestra muestra = muestraMapper.mapperToMuestra(muestraDto);
+        muestra = muestraRepository.save(muestra);
+        return muestraMapper.mapperToMuestraDto(muestra);
+    }
+
+    @Override
+    public List<MuestraDto> readAllMuestra() {
+        List<Muestra> muestras = muestraRepository.findAll();
+        List<MuestraDto> muestrasDto = new ArrayList<>();
+        for (Muestra muestra : muestras) {
+            muestrasDto.add(muestraMapper.mapperToMuestraDto(muestra));
+        }
+        return muestrasDto;
+    }
+
+}

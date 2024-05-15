@@ -6,7 +6,8 @@ import java.time.LocalDateTime;
 public class MuestraDto implements Serializable {
 
     private Long id_muestra;
-    private String serie;
+    private String tipo;
+    private String magnitud;
     private LocalDateTime fechaHora;
     private Float valor;
     private Long id_sensor;
@@ -14,16 +15,18 @@ public class MuestraDto implements Serializable {
     public MuestraDto() {
     }
 
-    public MuestraDto(String serie, LocalDateTime fechaHora, Float valor, Long id_sensor) {
-        this.serie = serie;
+    public MuestraDto(String tipo, String magnitud, LocalDateTime fechaHora, Float valor, Long id_sensor) {
+        this.tipo = tipo;
+        this.magnitud = magnitud;
         this.fechaHora = fechaHora;
         this.valor = valor;
         this.id_sensor = id_sensor;
     }
 
-    public MuestraDto(Long id_muestra, String serie, LocalDateTime fechaHora, Float valor, Long id_sensor) {
+    public MuestraDto(Long id_muestra, String tipo, String magnitud, LocalDateTime fechaHora, Float valor, Long id_sensor) {
         this.id_muestra = id_muestra;
-        this.serie = serie;
+        this.tipo = tipo;
+        this.magnitud = magnitud;
         this.fechaHora = fechaHora;
         this.valor = valor;
         this.id_sensor = id_sensor;
@@ -37,12 +40,20 @@ public class MuestraDto implements Serializable {
         this.id_muestra = id_muestra;
     }
 
-    public String getSerie() {
-        return serie;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setSerie(String serie) {
-        this.serie = serie;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getMagnitud() {
+        return magnitud;
+    }
+
+    public void setMagnitud(String magnitud) {
+        this.magnitud = magnitud;
     }
 
     public LocalDateTime getFechaHora() {
@@ -71,7 +82,7 @@ public class MuestraDto implements Serializable {
 
     @Override
     public String toString() {
-        return "MuestraDto{" + "id_muestra=" + id_muestra + ", serie=" + serie + ", fechaHora=" + fechaHora + ", valor=" + valor + ", id_sensor=" + id_sensor + '}';
+        return "MuestraDto{" + "id_muestra=" + id_muestra + ", tipo=" + tipo + ", magnitud=" + magnitud + ", fechaHora=" + fechaHora + ", valor=" + valor + ", id_sensor=" + id_sensor + '}';
     }
 
 }

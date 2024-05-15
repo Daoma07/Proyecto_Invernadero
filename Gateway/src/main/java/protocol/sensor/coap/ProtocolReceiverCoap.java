@@ -12,7 +12,7 @@ import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.CoapServer;
 import org.eclipse.californium.core.coap.CoAP;
 import org.eclipse.californium.core.server.resources.CoapExchange;
-import utils.MessageFormat;
+import com.mycompany.utilities.formatoGateway.MessageFormat;
 
 /**
  *

@@ -1,8 +1,6 @@
 C:\Users\Daniel\Desktop\Proyectos\Proyecto Invernadero\Proyecto_Invernadero\Gateway\src\main\java\protocol\IProtocolReceiver.java
 C:\Users\Daniel\Desktop\Proyectos\Proyecto Invernadero\Proyecto_Invernadero\Gateway\src\main\java\message_process\MessageProcessMqtt.java
 C:\Users\Daniel\Desktop\Proyectos\Proyecto Invernadero\Proyecto_Invernadero\Gateway\src\main\java\Rabbit.java
-C:\Users\Daniel\Desktop\Proyectos\Proyecto Invernadero\Proyecto_Invernadero\Gateway\src\main\java\utils\Data.java
-C:\Users\Daniel\Desktop\Proyectos\Proyecto Invernadero\Proyecto_Invernadero\Gateway\src\main\java\utils\MessageFormat.java
 C:\Users\Daniel\Desktop\Proyectos\Proyecto Invernadero\Proyecto_Invernadero\Gateway\src\main\java\gateway\Gateway.java
 C:\Users\Daniel\Desktop\Proyectos\Proyecto Invernadero\Proyecto_Invernadero\Gateway\src\main\java\protocol\sensor\coap\ProtocolReceiverCoap.java
 C:\Users\Daniel\Desktop\Proyectos\Proyecto Invernadero\Proyecto_Invernadero\Gateway\src\main\java\View\Monitor.java

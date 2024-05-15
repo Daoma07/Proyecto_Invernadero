@@ -17,7 +17,8 @@ import observer.IObservable;
 import observer.IObserver;
 import protocol.IProtocolReceiver;
 import protocol.IProtocolSender;
-import utils.MessageFormat;
+import com.mycompany.utilities.formatoGateway.MessageFormat;
+import com.mycompany.utilities.intercambio.RequestFormat;
 
 /**
  *
@@ -101,8 +102,11 @@ public class Gateway implements IGateway, IObservable {
     private String constructJsonArray(List<MessageFormat> messages) {
         ObjectMapper mapper = new ObjectMapper();
         try {
+
             String jsonArray = mapper.writeValueAsString(messages);
-            return jsonArray;
+            RequestFormat requestFormat = new RequestFormat(jsonArray, "create-muestras");
+            String json = mapper.writeValueAsString(requestFormat);
+            return json;
         } catch (JsonProcessingException e) {
             System.err.println("Error processing json: " + e.getMessage());
             return "[]";

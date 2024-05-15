@@ -44,5 +44,10 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.6</version> 
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Utilities</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

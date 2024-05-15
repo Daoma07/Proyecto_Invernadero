@@ -4,7 +4,7 @@
  */
 package message_process;
 
-import utils.MessageFormat;
+import com.mycompany.utilities.formatoGateway.MessageFormat;
 
 /**
  *

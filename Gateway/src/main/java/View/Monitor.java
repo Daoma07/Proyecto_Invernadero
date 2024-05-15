@@ -6,7 +6,7 @@ package View;
 
 import gateway.Gateway;
 import observer.IObserver;
-import utils.MessageFormat;
+import com.mycompany.utilities.formatoGateway.MessageFormat;
 
 /**
  *

@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.List;
-import utils.Data;
-import utils.MessageFormat;
+import com.mycompany.utilities.formatoGateway.Data;
+import com.mycompany.utilities.formatoGateway.MessageFormat;
 
 /**
  *

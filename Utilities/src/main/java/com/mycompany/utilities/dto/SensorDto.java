@@ -26,6 +26,16 @@ public class SensorDto implements Serializable {
         this.muestrasDtos = muestrasDtos;
     }
 
+    public SensorDto(Long id_sensor, String serie, String localizacion, String protocolo, String gateway, List<MuestraDto> muestrasDtos, Long id_invernadero) {
+        this.id_sensor = id_sensor;
+        this.serie = serie;
+        this.localizacion = localizacion;
+        this.protocolo = protocolo;
+        this.gateway = gateway;
+        this.muestrasDtos = muestrasDtos;
+        this.id_invernadero = id_invernadero;
+    }
+
     public SensorDto(String serie, String localizacion, String protocolo, String gateway, List<MuestraDto> muestrasDtos, Long id_invernadero, List<Long> id_alarmas_dtos, List<Long> ids_sensor_umbral) {
         this.serie = serie;
         this.localizacion = localizacion;

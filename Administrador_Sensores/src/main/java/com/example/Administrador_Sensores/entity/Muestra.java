@@ -29,7 +29,10 @@ public class Muestra {
     private Long id_muestra;
 
     @Column(name = "tipo", nullable = false, length = 255)
-    private String serie;
+    private String tipo;
+
+    @Column(name = "magnitud", nullable = false, length = 255)
+    private String magnitud;
 
     @Column(name = "fecha_hora", nullable = false)
     private LocalDateTime fechaHora;

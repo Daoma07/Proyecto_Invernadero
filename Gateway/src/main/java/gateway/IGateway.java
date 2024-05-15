@@ -4,7 +4,7 @@
  */
 package gateway;
 
-import utils.MessageFormat;
+import com.mycompany.utilities.formatoGateway.MessageFormat;
 
 /**
  *

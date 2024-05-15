@@ -39,6 +39,9 @@ public class Sensor {
     @Column(name = "gateway", nullable = false, length = 100)
     private String gateway;
 
+    @Column(name = "id_invernadero", nullable = false)
+    private Long id_invernadero;
+
     @OneToMany(mappedBy = "sensor")
     private List<Muestra> muestras;
 
