@@ -16,6 +16,7 @@ public class MessageFormat {
     private String date;
     private List<Data> data;
     private int interval;
+    private String gateway;
 
     public MessageFormat() {
     }
@@ -55,13 +56,21 @@ public class MessageFormat {
         return data;
     }
 
+    public String getGateway() {
+        return gateway;
+    }
+
+    public void setGateway(String gateway) {
+        this.gateway = gateway;
+    }
+
     public void setData(List<Data> data) {
         this.data = data;
     }
 
     @Override
     public String toString() {
-        return "MessageFormat{" + "serie=" + serie + ", date=" + date + ", data=" + data + ", interval=" + interval + '}';
+        return "MessageFormat{" + "serie=" + serie + ", date=" + date + ", data=" + data + ", interval=" + interval + ", gateway=" + gateway + '}';
     }
 
 }

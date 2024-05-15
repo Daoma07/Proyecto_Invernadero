@@ -16,26 +16,28 @@ class MessageProcessor {
     procesarMensaje(mensajeJSON) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const mensaje = JSON.parse(mensajeJSON);
-                const { serie, date, data, gateway } = mensaje;
-                let sensor = yield sensor_1.Sensor.findOne({ where: { serie, gateway } });
-                if (!sensor) {
-                    sensor = yield sensor_1.Sensor.create({ serie, gateway });
+                const mensajes = JSON.parse(mensajeJSON);
+                for (const mensaje of mensajes) {
+                    const { serie, date, data, gateway } = mensaje;
+                    let sensor = yield sensor_1.Sensor.findOne({ where: { serie, gateway } });
+                    if (!sensor) {
+                        sensor = yield sensor_1.Sensor.create({ serie, gateway });
+                    }
+                    const idDelSensor = sensor === null || sensor === void 0 ? void 0 : sensor.getDataValue("id");
+                    if (idDelSensor === undefined) {
+                        throw new Error("No se pudo obtener el ID del sensor.");
+                    }
+                    const datosPromesas = data.map((_a) => __awaiter(this, [_a], void 0, function* ({ type, magnitude, value }) {
+                        yield data_1.Data.create({
+                            type,
+                            magnitude,
+                            value,
+                            date,
+                            id_sensor: idDelSensor
+                        });
+                    }));
+                    yield Promise.all(datosPromesas);
                 }
-                const idDelSensor = sensor === null || sensor === void 0 ? void 0 : sensor.getDataValue("id");
-                if (idDelSensor === undefined) {
-                    throw new Error("No se pudo obtener el ID del sensor.");
-                }
-                const datosPromesas = data.map((_a) => __awaiter(this, [_a], void 0, function* ({ type, magnitude, value }) {
-                    yield data_1.Data.create({
-                        type,
-                        magnitude,
-                        value,
-                        date,
-                        id_sensor: idDelSensor
-                    });
-                }));
-                yield Promise.all(datosPromesas);
                 console.log("Datos procesados correctamente.");
             }
             catch (error) {

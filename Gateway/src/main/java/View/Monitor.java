@@ -6,6 +6,7 @@ package View;
 
 import gateway.Gateway;
 import observer.IObserver;
+import utils.MessageFormat;
 
 /**
  *
@@ -31,8 +32,8 @@ public class Monitor extends javax.swing.JFrame implements IObserver {
 
     private void actualizarArea() {
         this.txtInfo.setText("");
-        for (String mensaje : gateway.getMensajes()) {
-            txtInfo.append(mensaje + "\n");
+        for (MessageFormat mensaje : gateway.getMensajes()) {
+            txtInfo.append(mensaje.toString() + "\n");
         }
 
     }

@@ -21,7 +21,7 @@ class Server {
         })
     }
     startMessageConsumer() {
-        const messageConsumer = new RabbitMQConsumer('root', '1234', 'localhost', 5672, 'server');
+        const messageConsumer = new RabbitMQConsumer('root', '1234', 'localhost', 5672, 'server', 'gateway');
         messageConsumer.startConsuming()
             .then(() => console.log('Conexión establecida.'))
             .catch(error => console.error('Error al establecer la conexión:', error));

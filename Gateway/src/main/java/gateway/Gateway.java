@@ -17,6 +17,7 @@ import observer.IObservable;
 import observer.IObserver;
 import protocol.IProtocolReceiver;
 import protocol.IProtocolSender;
+import utils.MessageFormat;
 
 /**
  *
@@ -27,7 +28,7 @@ public class Gateway implements IGateway, IObservable {
     private String series;
     private List<IProtocolReceiver> sensors;
     private IProtocolSender server;
-    private List<String> mensajes = new ArrayList<>();
+    private List<MessageFormat> mensajes = new ArrayList<>();
     private List<IObserver> observadore = new ArrayList<>();
     private ScheduledExecutorService scheduler;
 
@@ -80,8 +81,8 @@ public class Gateway implements IGateway, IObservable {
     }
 
     @Override
-    public void processMessage(String message) {
-        message = assignGateway(message);
+    public void processMessage(MessageFormat message) {
+        message.setGateway(series);
         this.mensajes.add(message);
         actualizarTodos();
     }
@@ -97,7 +98,7 @@ public class Gateway implements IGateway, IObservable {
 
     }
 
-    private String constructJsonArray(List<String> messages) {
+    private String constructJsonArray(List<MessageFormat> messages) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             String jsonArray = mapper.writeValueAsString(messages);
@@ -105,20 +106,6 @@ public class Gateway implements IGateway, IObservable {
         } catch (JsonProcessingException e) {
             System.err.println("Error processing json: " + e.getMessage());
             return "[]";
-        }
-    }
-
-    private String assignGateway(String message) {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode rootNode = mapper.readTree(message);
-
-            ((ObjectNode) rootNode).put("gateway", series);
-
-            String json = mapper.writeValueAsString(rootNode);
-            return json;
-        } catch (JsonProcessingException e) {
-            return null;
         }
     }
 
@@ -142,7 +129,7 @@ public class Gateway implements IGateway, IObservable {
         this.observadore.add(observador);
     }
 
-    public List<String> getMensajes() {
+    public List<MessageFormat> getMensajes() {
         return mensajes;
     }
 
