@@ -9,24 +9,23 @@ public class AlarmaDto implements Serializable {
     private TipoAlarmaEnum tipoAlarmaEnum;
     private LocalDateTime fechaHora;
     private Float valor_excedido;
-    private Long id_sensor;
+    private SensorDto sensorDto;
 
     public AlarmaDto() {
     }
 
-    public AlarmaDto(TipoAlarmaEnum tipoAlarmaEnum, LocalDateTime fechaHora, Float valor_excedido, Long id_sensor) {
+    public AlarmaDto(TipoAlarmaEnum tipoAlarmaEnum, LocalDateTime fechaHora, Float valor_excedido) {
         this.tipoAlarmaEnum = tipoAlarmaEnum;
         this.fechaHora = fechaHora;
         this.valor_excedido = valor_excedido;
-        this.id_sensor = id_sensor;
     }
 
-    public AlarmaDto(Long id_alarma, TipoAlarmaEnum tipoAlarmaEnum, LocalDateTime fechaHora, Float valor_excedido, Long id_sensor) {
+    public AlarmaDto(Long id_alarma, TipoAlarmaEnum tipoAlarmaEnum, LocalDateTime fechaHora, Float valor_excedido, SensorDto sensorDto) {
         this.id_alarma = id_alarma;
         this.tipoAlarmaEnum = tipoAlarmaEnum;
         this.fechaHora = fechaHora;
         this.valor_excedido = valor_excedido;
-        this.id_sensor = id_sensor;
+        this.sensorDto = sensorDto;
     }
 
     public Long getId_alarma() {
@@ -61,17 +60,17 @@ public class AlarmaDto implements Serializable {
         this.valor_excedido = valor_excedido;
     }
 
-    public Long getId_sensor() {
-        return id_sensor;
+    public SensorDto getSensorDto() {
+        return sensorDto;
     }
 
-    public void setId_sensor(Long id_sensor) {
-        this.id_sensor = id_sensor;
+    public void setSensorDto(SensorDto sensorDto) {
+        this.sensorDto = sensorDto;
     }
 
     @Override
     public String toString() {
-        return "AlarmaDto{" + "id_alarma=" + id_alarma + ", tipoAlarmaEnum=" + tipoAlarmaEnum + ", fechaHora=" + fechaHora + ", valor_excedido=" + valor_excedido + ", id_sensor=" + id_sensor + '}';
+        return "AlarmaDto{" + "id_alarma=" + id_alarma + ", tipoAlarmaEnum=" + tipoAlarmaEnum + ", fechaHora=" + fechaHora + ", valor_excedido=" + valor_excedido + ", sensorDto=" + sensorDto + '}';
     }
 
 }
