@@ -29,7 +29,7 @@ public class MuestraMapper {
                 muestraDto.getMagnitud(),
                 muestraDto.getFechaHora(),
                 muestraDto.getValor(),
-                sensorRepository.findById(muestraDto.getId_muestra()).orElse(null)
+                sensorRepository.findById(muestraDto.getId_sensor()).orElse(null)
         );
     }
 

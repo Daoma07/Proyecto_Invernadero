@@ -10,10 +10,6 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import protocol.IProtocolSender;
 
-/**
- *
- * @author Daniel
- */
 public class ProtocolSenderRabbit implements IProtocolSender {
 
     private static final String HOST = "localhost";
@@ -41,7 +37,7 @@ public class ProtocolSenderRabbit implements IProtocolSender {
 
         try (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
 
-            channel.exchangeDeclare(exchange, BuiltinExchangeType.TOPIC);
+            channel.exchangeDeclare(exchange, BuiltinExchangeType.TOPIC, true);
 
             channel.basicPublish(exchange, routingKey, null, message.getBytes("UTF-8"));
             System.out.println("Enviado respuesta al servidor");

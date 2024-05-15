@@ -50,7 +50,9 @@ public class ActionRouterGateway {
             });
             for (MessageFormat messageFormat : messageFormats) {
                 SensorDto sensorDto = sensorServiceImpl.readSensorSerie(messageFormat.getSerie());
+                messageFormat.toString();
                 if (sensorDto != null) {
+
                     for (Data data : messageFormat.getData()) {
                         MuestraDto muestraDto = new MuestraDto(
                                 data.getType(),

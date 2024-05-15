@@ -2,6 +2,7 @@ package com.example.Administrador_Sensores.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -42,7 +43,7 @@ public class Sensor {
     @Column(name = "id_invernadero", nullable = false)
     private Long id_invernadero;
 
-    @OneToMany(mappedBy = "sensor")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "sensor")
     private List<Muestra> muestras;
 
 }

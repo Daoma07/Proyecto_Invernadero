@@ -16,9 +16,16 @@ public class SensorMapper {
     private MuestraMapper muestraMapper;
 
     public SensorDto mapperToSensorDto(Sensor sensor) {
+        if (sensor == null) {
+            return null;
+        }
+
         List<MuestraDto> muestraDtos = new ArrayList<>();
-        for (Muestra muestra : sensor.getMuestras()) {
-            muestraDtos.add(muestraMapper.mapperToMuestraDto(muestra));
+
+        if (sensor.getMuestras() != null) {
+            for (Muestra muestra : sensor.getMuestras()) {
+                muestraDtos.add(muestraMapper.mapperToMuestraDto(muestra));
+            }
         }
 
         return new SensorDto(
