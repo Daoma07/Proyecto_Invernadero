@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+#registro-invernadero {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#registro-invernadero h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#formulario-invernadero div {
+    margin-bottom: 15px;
+}
+
+#formulario-invernadero label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#formulario-invernadero input[type="text"],
+#formulario-invernadero textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#formulario-invernadero textarea {
+    resize: vertical;
+}
+
+#formulario-invernadero button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#formulario-invernadero button:hover {
+    background-color: #45a049;
+}
+
+#lista-invernaderos {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#lista-invernaderos h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#lista {
+    list-style: none;
+    padding: 0;
+}
+
+#lista li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#lista li:last-child {
+    border-bottom: none;
+}
+
+#agregarContacto {
+    display: inline-block;
+    margin-left: 10px; /* Ajusta el margen izquierdo según sea necesario */
+    vertical-align: middle; /* Alinea verticalmente con el campo de entrada */
+}

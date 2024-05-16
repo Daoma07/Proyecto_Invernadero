@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrales</title>
+    <link rel="stylesheet" href="homePage.css">
+    <link rel="stylesheet" href="umbrales.css"> <!-- Asegúrate de tener un archivo CSS adecuado para los umbrales -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="homePage.html">
+                <img src="homePage_logo.png" alt="Logo de tu invernadero">
+            </a>
+        </div>
+        <div class="user-icon">
+            <img src="userpng.png"  alt="Ícono de usuario" id="user-icon">Usuario
+            <div class="user-menu" id="user-menu">
+                <ul>
+                    <li><a href="#">Mi Perfil</a></li>
+                    <li><a href="#">Configuración</a></li>
+                    <li><a href="#">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="invernadero.html">Invernaderos</a></li>
+                <li><a href="sensores.html">Sensores</a></li>
+                <li><a href="umbrales.html">Umbrales</a></li>
+                <li><a href="contactos.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <div id="registro-umbrales">
+            <h2>Registro de Umbrales</h2>
+            <form id="formulario-umbrales">
+                <div>
+                    <label for="id">ID:</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+                <div>
+                    <label for="max">Valor Máximo:</label>
+                    <input type="number" id="max" name="max" step="0.01" required>
+                </div>
+                <div>
+                    <label for="min">Valor Mínimo:</label>
+                    <input type="number" id="min" name="min" step="0.01" required>
+                </div>
+                <div>
+                    <label for="condiciones">Condiciones:</label>
+                    <select id="condiciones" name="condiciones" required>
+                        <option value="PRIMAVERA">PRIMAVERA</option>
+                        <option value="VERANO">VERANO</option>
+                        <option value="OTOÑO">OTOÑO</option>
+                        <option value="INVIERNO">INVIERNO</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tipo">Tipo:</label>
+                    <select id="condiciones" name="condiciones" required>
+                        <option value="HUMEDAD">HUMEDAD</option>
+                        <option value="TEMPERATURA">TEMPERATURA</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="contacto">Agregar Sensor:</label>
+                    <input type="checkbox" id="checkboxContacto" name="checkbox-contacto">
+                    <input type="text" id="contacto" name="contacto">
+                    <button id="agregarSensor">Aceptar</button>
+                </div>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+                <!-- ñista de umbrales -->
+                <div id="lista-umbrales">
+                    <h2>Listado de Umbrales</h2>
+                    <ul id="lista">
+                        <!-- dista de items se van a agregar dinámicamente -->
+                    </ul>
+                </div>
+    </main>
+    <script src="homePage.js"></script>
+    <script src="umbrales.js" type="module"></script>
+</body>
+</html>

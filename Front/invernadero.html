@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de tu Invernadero</title>
+    <link rel="stylesheet" href="homePage.css">
+    <link rel="stylesheet" href="invernadero.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="homePage.html">
+                <img src="homePage_logo.png" alt="Logo de tu invernadero" >
+                </a>
+        </div>
+        <div class="user-icon">
+            <img src="userpng.png"  alt="Ícono de usuario" id="user-icon">Usuario
+            <div class="user-menu" id="user-menu">
+                <ul>
+                    <li><a href="#">Mi Perfil</a></li>
+                    <li><a href="#">Configuración</a></li>
+                    <li><a href="#">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="invernadero.html">Invernaderos</a></li>
+                <li><a href="Sensores.html">Sensores</a></li>
+                <li><a href="umbrales.html">Umbrales</a></li>
+                <li><a href="contactos.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <div id="registro-invernadero">
+            <h2>Registro de Invernadero</h2>
+            <form id="formulario-invernadero">
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div>
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+                </div>
+                <div>
+                    <label for="location">Ubicación:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div>
+                    <label for="contacto">ID del Contacto:</label>
+                    <input type="checkbox" id="checkboxContacto" name="checkbox-contacto">
+                    <input type="text" id="contacto" name="contacto">
+                    <button id="agregarContacto">Aceptar</button>
+                </div>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+                <!-- Lista de invernaderos -->
+                <div id="lista-invernaderos">
+                    <h2>Listado de Invernaderos</h2>
+                    <ul id="lista">
+                        <!-- Lista de items se van a agregar dinámicamente -->
+                    </ul>
+                </div>
+    </main>
+    <script src="homePage.js"></script>
+    <script src="invernadero.js"></script>
+</body>
+</html>

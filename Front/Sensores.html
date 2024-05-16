@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Sensores</title>
+    <link rel="stylesheet" href="homePage.css">
+    <link rel="stylesheet" href="sensores.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="homePage.html">
+                <img src="homePage_logo.png" alt="Logo de tu invernadero" >
+            </a>
+        </div>
+        <div class="user-icon">
+            <img src="userpng.png"  alt="Ícono de usuario" id="user-icon">Usuario
+            <div class="user-menu" id="user-menu">
+                <ul>
+                    <li><a href="#">Mi Perfil</a></li>
+                    <li><a href="#">Configuración</a></li>
+                    <li><a href="#">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="invernadero.html">Invernaderos</a></li>
+                <li><a href="sensores.html">Sensores</a></li>
+                <li><a href="umbrales.html">Umbrales</a></li>
+                <li><a href="contactos.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <div id="registro-sensor">
+            <h2>Registro de Sensores</h2>
+            <form id="formulario-sensor">
+                <div>
+                    <label for="serie">Serie:</label>
+                    <input type="text" id="serie" name="serie" required>
+                </div>
+                <div>
+                    <label for="lugar">Lugar:</label>
+                    <input type="text" id="lugar" name="lugar" required>
+                </div>
+                <div>
+                    <label for="gateway">Gateway:</label>
+                    <input type="text" id="gateway" name="gateway" required>
+                </div>
+                <div>
+                    <label for="protocolo">Protocolo:</label>
+                    <select id="protocolo" name="protocolo" required>
+                        <option value="Mqqt">Mqqt</option>
+                        <option value="Coap">Coap</option>
+                    </select>
+                </div>
+                <div>
+                <div>
+                    <label for="pertenece_invernadero">Id Invernadero:</label>
+                    <input type="checkbox" id="checkboxContacto1" name="checkbox-contacto1">
+                    <input type="text" id="invernadero" name="invernadero">
+                    <button id="agregarInvernadero">Aceptar</button>
+                </div>
+                    <div>
+                        <label for="umbrales">Seleccionar Umbral:</label>
+                        <input type="checkbox" id="checkboxContacto" name="checkbox-contacto">
+                        <input type="text" id="umbral" name="umbral">
+                        <button id="agregarUmbral">Aceptar</button>
+                    </div>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+                        <!-- Lista de sensores -->
+                        <div id="lista-sensores">
+                            <h2>Listado de Sensores</h2>
+                            <ul id="lista">
+                                <!-- Lista de items se van a agregar dinámicamente -->
+                            </ul>
+                        </div>
+    </main>
+    <script src="homePage.js"></script>
+    <script src="sensores.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+}
+
+.logo img,
+.user-icon img {
+    height: 50px; /* Ajusta la altura según tus necesidades */
+}
+.user-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.user-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-menu ul li {
+    padding: 5px 0;
+}
+
+.user-menu ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.user-menu ul li a:hover {
+    color: #555;
+}
+.sidebar {
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    overflow-y: auto;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    padding: 10px 0;
+}
+
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: #555;
+}
+
+main {
+    margin-left: 220px; /* Ajusta el margen según el ancho de tu sidebar */
+    padding: 20px;
+}
+
+/* invernadero.css */
+
+#registro-sensor {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#registro-sensor h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#formulario-sensor div {
+    margin-bottom: 15px;
+}
+
+#formulario-sensor label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#formulario-sensor input[type="text"],
+#formulario-sensor textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#formulario-sensor textarea {
+    resize: vertical;
+}
+
+#formulario-sensor button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#formulario-sensor button:hover {
+    background-color: #45a049;
+}
+
+#lista-sensores {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#lista-sensores h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#lista {
+    list-style: none;
+    padding: 0;
+}
+
+#lista li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#lista li:last-child {
+    border-bottom: none;
+}
+
+#agregarSensor {
+    display: inline-block;
+    margin-left: 10px; /* Ajusta el margen izquierdo según sea necesario */
+    vertical-align: middle; /* Alinea verticalmente con el campo de entrada */
+}
