@@ -1,14 +1,12 @@
 package com.example.Administrador_Sensores.router;
 
-import com.example.Administrador_Sensores.service.impl.MuestraServiceImpl;
-import com.example.Administrador_Sensores.service.impl.SensorServiceImpl;
+import com.example.Administrador_Sensores.facade.IFacade;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mycompany.utilities.dto.MuestraDto;
 import com.mycompany.utilities.dto.SensorDto;
 import com.mycompany.utilities.intercambio.RequestFormat;
 import com.mycompany.utilities.intercambio.ResponseFormat;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.logging.Level;
@@ -22,52 +20,35 @@ public class ActionRouter {
 
     private final Map<String, Function<String, ResponseFormat>> actionMap;
 
-    @Autowired
-    private MuestraServiceImpl muestraServiceImpl;
+    private IFacade facade;
 
-    @Autowired
-    private SensorServiceImpl sensorServiceImpl;
-
-    @Autowired
     private ObjectMapper objectMapper;
 
-    private ActionRouter() {
+    @Autowired
+    public ActionRouter(IFacade facade, ObjectMapper objectMapper) {
+        this.facade = facade;
+        this.objectMapper = objectMapper;
         actionMap = new HashMap<>();
+        inicializarRouter();
+    }
+
+    private void inicializarRouter() {
         actionMap.put("create-sensor", this::createSensor);
         actionMap.put("read-all-muestras", this::readAllMuestra);
     }
 
     private ResponseFormat readAllMuestra(String content) {
-        try {
-            List<MuestraDto> muestrasDtos = muestraServiceImpl.readAllMuestra();
-            if (!muestrasDtos.isEmpty() || muestrasDtos != null) {
-                return new ResponseFormat(objectMapper.writeValueAsString(muestrasDtos),
-                        HttpStatus.OK.value());
-            }
-            return new ResponseFormat(objectMapper.writeValueAsString("No se puedo consultar las muestras"),
-                    HttpStatus.NOT_FOUND.value());
-        } catch (Exception ex) {
-            Logger.getLogger(ActionRouter.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseFormat("No se puedo puedo consultar las muestras",
-                    HttpStatus.INTERNAL_SERVER_ERROR.value());
-        }
+        return facade.readAllMuestra();
     }
 
     private ResponseFormat createSensor(String content) {
         try {
             SensorDto sensorDto = objectMapper.readValue(content, SensorDto.class);
-            sensorDto = sensorServiceImpl.createSensor(sensorDto);
-            if (sensorDto.getId_sensor() != null) {
-                return new ResponseFormat(objectMapper.writeValueAsString(sensorDto),
-                        HttpStatus.OK.value());
-            }
-            return new ResponseFormat(objectMapper.writeValueAsString("No se puedo registrar el sensor"),
-                    HttpStatus.NOT_FOUND.value());
-        } catch (Exception ex) {
+            return facade.createSensor(sensorDto);
+        } catch (JsonProcessingException ex) {
             Logger.getLogger(ActionRouter.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseFormat("No se puedo registrar el sensor",
-                    HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
+        return null;
     }
 
     public ResponseFormat route(RequestFormat requestFormat) {

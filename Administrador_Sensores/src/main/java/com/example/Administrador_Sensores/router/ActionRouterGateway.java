@@ -1,5 +1,6 @@
 package com.example.Administrador_Sensores.router;
 
+import com.example.Administrador_Sensores.facade.IFacade;
 import com.example.Administrador_Sensores.service.impl.MuestraServiceImpl;
 import com.example.Administrador_Sensores.service.impl.SensorServiceImpl;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -29,27 +30,28 @@ public class ActionRouterGateway {
 
     private final Map<String, Consumer<String>> actionMap;
 
-    @Autowired
-    private MuestraServiceImpl muestraServiceImpl;
-
-    @Autowired
-    private SensorServiceImpl sensorServiceImpl;
-
-    @Autowired
+    private IFacade facade;
     private ObjectMapper objectMapper;
 
-    private ActionRouterGateway() {
+    @Autowired
+    public ActionRouterGateway(IFacade facade, ObjectMapper objectMapper) {
         actionMap = new HashMap<>();
+        this.facade = facade;
+        this.objectMapper = objectMapper;
         actionMap.put("create-muestras", this::createMuestras);
     }
 
+//    private ActionRouterGateway() {
+//        actionMap = new HashMap<>();
+//        actionMap.put("create-muestras", this::createMuestras);
+//    }
     private void createMuestras(String content) {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             List<MessageFormat> messageFormats = objectMapper.readValue(content, new TypeReference<List<MessageFormat>>() {
             });
             for (MessageFormat messageFormat : messageFormats) {
-                SensorDto sensorDto = sensorServiceImpl.readSensorSerie(messageFormat.getSerie());
+                SensorDto sensorDto = facade.readSensorSerie(messageFormat.getSerie());
                 messageFormat.toString();
                 if (sensorDto != null) {
 
@@ -60,7 +62,7 @@ public class ActionRouterGateway {
                                 LocalDateTime.parse(messageFormat.getDate(), formatter),
                                 data.getValue(),
                                 sensorDto.getId_sensor());
-                        muestraServiceImpl.createMuestra(muestraDto);
+                        facade.createMuestra(muestraDto);
                     }
                 }
             }

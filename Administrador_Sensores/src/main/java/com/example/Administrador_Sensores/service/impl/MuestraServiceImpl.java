@@ -3,15 +3,15 @@ package com.example.Administrador_Sensores.service.impl;
 import com.example.Administrador_Sensores.entity.Muestra;
 import com.example.Administrador_Sensores.mapper.MuestraMapper;
 import com.example.Administrador_Sensores.repository.MuestraRepository;
-import com.example.Administrador_Sensores.service.MuestarService;
 import com.mycompany.utilities.dto.MuestraDto;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.Administrador_Sensores.service.MuestraService;
 
 @Service
-public class MuestraServiceImpl implements MuestarService {
+public class MuestraServiceImpl implements MuestraService {
 
     @Autowired
     private MuestraRepository muestraRepository;
