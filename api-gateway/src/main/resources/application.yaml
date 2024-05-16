@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: api-gateway
+
+
+
+  webflux:
+    cors:
+      allowed-origins: "*"
+      max-age: 3600
+
+ribbon:
+  eureka:
+    enabled: false
+
+eureka:
+  client:
+    enabled: false

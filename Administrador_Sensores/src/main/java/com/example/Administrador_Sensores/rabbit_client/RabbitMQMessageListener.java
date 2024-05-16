@@ -20,7 +20,7 @@ public class RabbitMQMessageListener {
         this.actionRouterGateway = actionRouterGateway;
     }
 
-    @RabbitListener(queues = "${spring.rabbitmq.template.default-receive-queue}")
+    @RabbitListener(queues = "${fanout.queue}")
     public void receiveMessage(String content) throws JsonProcessingException {
 
         RequestFormat request = objectMapper.readValue(content, RequestFormat.class);

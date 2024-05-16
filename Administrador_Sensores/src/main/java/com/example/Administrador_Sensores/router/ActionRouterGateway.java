@@ -1,8 +1,6 @@
 package com.example.Administrador_Sensores.router;
 
 import com.example.Administrador_Sensores.facade.IFacade;
-import com.example.Administrador_Sensores.service.impl.MuestraServiceImpl;
-import com.example.Administrador_Sensores.service.impl.SensorServiceImpl;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.utilities.dto.MuestraDto;
@@ -21,10 +19,6 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- *
- * @author Daniel
- */
 @Component
 public class ActionRouterGateway {
 
@@ -41,10 +35,6 @@ public class ActionRouterGateway {
         actionMap.put("create-muestras", this::createMuestras);
     }
 
-//    private ActionRouterGateway() {
-//        actionMap = new HashMap<>();
-//        actionMap.put("create-muestras", this::createMuestras);
-//    }
     private void createMuestras(String content) {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");

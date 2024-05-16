@@ -15,4 +15,5 @@ public interface IFacade {
     SensorDto readSensorSerie(String serie);
 
     ResponseFormat readAllSensores();
+
 }

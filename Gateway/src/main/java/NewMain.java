@@ -42,7 +42,7 @@ public class NewMain {
         receivers.add(protocolReceiverCoap);
 
         //Server
-        IProtocolSender sender = new ProtocolSenderRabbit("server", "gateway");
+        IProtocolSender sender = new ProtocolSenderRabbit("server");
         gateway.setSensors(receivers);
         gateway.setServer(sender);
 

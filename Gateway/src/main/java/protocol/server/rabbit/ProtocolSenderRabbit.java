@@ -16,12 +16,10 @@ public class ProtocolSenderRabbit implements IProtocolSender {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "1234";
     private final String exchange;
-    private static String routingKey;
     private ConnectionFactory factory;
 
-    public ProtocolSenderRabbit(String exchange, String routingKey) {
+    public ProtocolSenderRabbit(String exchange) {
         this.exchange = exchange;
-        this.routingKey = routingKey;
     }
 
     @Override
@@ -34,16 +32,17 @@ public class ProtocolSenderRabbit implements IProtocolSender {
 
     @Override
     public void send(String message) {
-
         try (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
+            // Declara el exchange como fanout
+            channel.exchangeDeclare(exchange, BuiltinExchangeType.FANOUT, true);
 
-            channel.exchangeDeclare(exchange, BuiltinExchangeType.TOPIC, true);
-
-            channel.basicPublish(exchange, routingKey, null, message.getBytes("UTF-8"));
-            System.out.println("Enviado respuesta al servidor");
+            // Publica el mensaje en el exchange sin especificar una routing key
+            channel.basicPublish(exchange, "", null, message.getBytes("UTF-8"));
+            System.out.println("Mensaje enviado al exchange fanout: " + message);
 
         } catch (Exception e) {
             System.err.println("Error al enviar mensaje: " + e.getMessage());
         }
     }
+
 }

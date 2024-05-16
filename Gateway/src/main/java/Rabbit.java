@@ -43,7 +43,7 @@ public class Rabbit {
         };
 
         // Registrar el consumidor en la cola
-        channel.basicConsume(queueName, false, deliverCallback, consumerTag -> {
+        channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {
         });
     }
 

@@ -5,6 +5,7 @@ import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Exchange;
 import org.springframework.amqp.core.ExchangeBuilder;
+import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
@@ -17,31 +18,24 @@ import org.springframework.context.annotation.Configuration;
 @EnableRabbit
 public class RabbitMQConfig {
 
-    private final String exchangeName = "server";
-    private final String queueName = "gateway";
-    private final String routingKey = "gateway";
+    @Value("${fanout.queue}")
+    private String queue;
+
+    @Value("${fanout.exchange}")
+    private String exchange;
 
     @Bean
-    public Exchange topicExchange() {
-        return ExchangeBuilder.topicExchange(exchangeName).durable(true).build();
+    public Queue fanoutQueue() {
+        return new Queue(queue, true);
     }
 
     @Bean
-    public Queue queue() {
-        return new Queue(queueName);
+    public FanoutExchange fanoutExchange() {
+        return new FanoutExchange(exchange);
     }
 
     @Bean
-    public Binding binding(Queue queue, Exchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routingKey).noargs();
-    }
-
-    @Bean
-    public SimpleMessageConverter converter() {
-        SimpleMessageConverter converter = new SimpleMessageConverter();
-        converter.setAllowedListPatterns(List.of("com.mycompany.utilities.dto.*",
-                "com.mycompany.utilities.intercambio.*",
-                "com.mycompany.utilities.formatoGateway.*"));
-        return converter;
+    public Binding fanoutBinding(Queue fanoutQueue, FanoutExchange fanoutExchange) {
+        return BindingBuilder.bind(fanoutQueue).to(fanoutExchange);
     }
 }

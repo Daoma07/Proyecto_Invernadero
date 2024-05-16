@@ -9,7 +9,7 @@ public class AlarmaDto implements Serializable {
     private TipoAlarmaEnum tipoAlarmaEnum;
     private LocalDateTime fechaHora;
     private Float valor_excedido;
-    private SensorDto sensorDto;
+    private Long id_sensor;
 
     public AlarmaDto() {
     }
@@ -20,12 +20,13 @@ public class AlarmaDto implements Serializable {
         this.valor_excedido = valor_excedido;
     }
 
-    public AlarmaDto(Long id_alarma, TipoAlarmaEnum tipoAlarmaEnum, LocalDateTime fechaHora, Float valor_excedido, SensorDto sensorDto) {
+    public AlarmaDto(Long id_alarma, TipoAlarmaEnum tipoAlarmaEnum,
+            LocalDateTime fechaHora, Float valor_excedido, Long id_sensor) {
         this.id_alarma = id_alarma;
         this.tipoAlarmaEnum = tipoAlarmaEnum;
         this.fechaHora = fechaHora;
         this.valor_excedido = valor_excedido;
-        this.sensorDto = sensorDto;
+        this.id_sensor = id_sensor;
     }
 
     public Long getId_alarma() {
@@ -60,17 +61,17 @@ public class AlarmaDto implements Serializable {
         this.valor_excedido = valor_excedido;
     }
 
-    public SensorDto getSensorDto() {
-        return sensorDto;
+    public Long getId_sensor() {
+        return id_sensor;
     }
 
-    public void setSensorDto(SensorDto sensorDto) {
-        this.sensorDto = sensorDto;
+    public void setId_sensor(Long id_sensor) {
+        this.id_sensor = id_sensor;
     }
 
     @Override
     public String toString() {
-        return "AlarmaDto{" + "id_alarma=" + id_alarma + ", tipoAlarmaEnum=" + tipoAlarmaEnum + ", fechaHora=" + fechaHora + ", valor_excedido=" + valor_excedido + ", sensorDto=" + sensorDto + '}';
+        return "AlarmaDto{" + "id_alarma=" + id_alarma + ", tipoAlarmaEnum=" + tipoAlarmaEnum + ", fechaHora=" + fechaHora + ", valor_excedido=" + valor_excedido + ", id_sensor=" + id_sensor + '}';
     }
 
 }

@@ -129,7 +129,7 @@
         <sourceConnection xsi:type="archimate:Connection" id="id-0d5a77c014fe4f68915a5c8b1ab6725c" source="id-d5c75835fc2842379611543561796796" target="id-579b4dc3ed3949a3b1f36ece20fac039" archimateRelationship="id-97ddc2f620984ed9939824366a4006b6"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-e2845cf91a894179959fc6a84b0a399d" archimateElement="id-67e880ed0bf749e9b75adf55476b2ca1">
-        <bounds x="120" width="120" height="55"/>
+        <bounds x="168" width="120" height="55"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-080e7b4b454140a3975d9f19a4ea3206" source="id-e2845cf91a894179959fc6a84b0a399d" target="id-579b4dc3ed3949a3b1f36ece20fac039" archimateRelationship="id-2bff9f629b54484b93abe9c254903828"/>
       </child>
     </element>

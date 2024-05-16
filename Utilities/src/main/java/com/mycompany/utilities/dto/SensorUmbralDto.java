@@ -6,20 +6,20 @@ public class SensorUmbralDto implements Serializable {
 
     private Long id_sensor_umbral;
     private UmbralesDto umbralesDto;
-    private SensorDto sensorDto;
+    private Long id_sensor;
 
     public SensorUmbralDto() {
     }
 
-    public SensorUmbralDto(UmbralesDto umbralesDto, SensorDto sensorDto) {
+    public SensorUmbralDto(UmbralesDto umbralesDto, Long sensorDto) {
         this.umbralesDto = umbralesDto;
-        this.sensorDto = sensorDto;
+        this.id_sensor = sensorDto;
     }
 
-    public SensorUmbralDto(Long id_sensor_umbral, UmbralesDto umbralesDto, SensorDto sensorDto) {
+    public SensorUmbralDto(Long id_sensor_umbral, UmbralesDto umbralesDto, Long sensorDto) {
         this.id_sensor_umbral = id_sensor_umbral;
         this.umbralesDto = umbralesDto;
-        this.sensorDto = sensorDto;
+        this.id_sensor = sensorDto;
     }
 
     public Long getId_sensor_umbral() {
@@ -38,17 +38,17 @@ public class SensorUmbralDto implements Serializable {
         this.umbralesDto = umbralesDto;
     }
 
-    public SensorDto getSensorDto() {
-        return sensorDto;
+    public Long getId_sensor() {
+        return id_sensor;
     }
 
-    public void setSensorDto(SensorDto sensorDto) {
-        this.sensorDto = sensorDto;
+    public void setId_sensor(Long id_sensor) {
+        this.id_sensor = id_sensor;
     }
 
     @Override
     public String toString() {
-        return "SensorUmbralDto{" + "id_sensor_umbral=" + id_sensor_umbral + ", umbralesDto=" + umbralesDto + ", sensorDto=" + sensorDto + '}';
+        return "SensorUmbralDto{" + "id_sensor_umbral=" + id_sensor_umbral + ", umbralesDto=" + umbralesDto + ", id_sensor=" + id_sensor + '}';
     }
 
 }
