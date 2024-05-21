@@ -32,6 +32,11 @@ public class SensorUmbralServiceImpl implements SensorUmbralService {
         return SensorUmbralMapper.mapperToSensorUmbralDto(sensorUmbral);
     }
 
+    public List<SensorUmbral> buscarPorIdSensor(Long idSensor) {
+        //  return sensorUmbralRepository.findByIdSensor(idSensor);
+        return null;
+    }
+
     @Override
     public List<SensorUmbralDto> readAllSensorUmbral() {
         List<SensorUmbral> sensorUmbrals = sensorUmbralRepository.findAll();

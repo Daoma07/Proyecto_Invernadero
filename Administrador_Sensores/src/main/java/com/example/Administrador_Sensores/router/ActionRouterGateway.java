@@ -1,6 +1,7 @@
 package com.example.Administrador_Sensores.router;
 
 import com.example.Administrador_Sensores.facade.IFacade;
+import com.example.Administrador_Sensores.service.SensorService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.utilities.dto.MuestraDto;
@@ -23,16 +24,17 @@ import org.springframework.stereotype.Component;
 public class ActionRouterGateway {
 
     private final Map<String, Consumer<String>> actionMap;
-
+    private SensorService sensorService;
     private IFacade facade;
     private ObjectMapper objectMapper;
 
     @Autowired
-    public ActionRouterGateway(IFacade facade, ObjectMapper objectMapper) {
+    public ActionRouterGateway(IFacade facade, ObjectMapper objectMapper, SensorService sensorService) {
         actionMap = new HashMap<>();
         this.facade = facade;
         this.objectMapper = objectMapper;
         actionMap.put("create-muestras", this::createMuestras);
+        this.sensorService = sensorService;
     }
 
     private void createMuestras(String content) {
@@ -41,7 +43,7 @@ public class ActionRouterGateway {
             List<MessageFormat> messageFormats = objectMapper.readValue(content, new TypeReference<List<MessageFormat>>() {
             });
             for (MessageFormat messageFormat : messageFormats) {
-                SensorDto sensorDto = facade.readSensorSerie(messageFormat.getSerie());
+                SensorDto sensorDto = sensorService.readSensorSerie(messageFormat.getSerie());
                 messageFormat.toString();
                 if (sensorDto != null) {
 

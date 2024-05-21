@@ -69,11 +69,6 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public SensorDto readSensorSerie(String serie) {
-        return sensorService.readSensorSerie(serie);
-    }
-
-    @Override
     public ResponseFormat readAllSensores() {
         try {
             List<SensorDto> sensoresDtos = sensorService.readAllSensores();
@@ -86,6 +81,23 @@ public class Facade implements IFacade {
         } catch (Exception ex) {
             Logger.getLogger(ActionRouter.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseFormat("No se puedo puedo consultar los registros",
+                    HttpStatus.INTERNAL_SERVER_ERROR.value());
+        }
+    }
+
+    @Override
+    public ResponseFormat readSensorSerie(String serie) {
+        try {
+            SensorDto sensorDto = sensorService.readSensorSerie(serie);
+            if (sensorDto.getId_sensor() != null) {
+                return new ResponseFormat(objectMapper.writeValueAsString(sensorDto),
+                        HttpStatus.OK.value());
+            }
+            return new ResponseFormat(objectMapper.writeValueAsString("No existe el sensor en la bd"),
+                    HttpStatus.NOT_FOUND.value());
+        } catch (Exception ex) {
+            Logger.getLogger(ActionRouter.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseFormat("No se puedo buscar el sensor",
                     HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
     }

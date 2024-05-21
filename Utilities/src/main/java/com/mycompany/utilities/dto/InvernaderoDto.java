@@ -18,6 +18,14 @@ public class InvernaderoDto implements Serializable {
         this.descripcion = descripcion;
     }
 
+    public InvernaderoDto(Long id_invernadero, String nombre, String localizacion, String descripcion, List<Long> ids_invernadero_contacto) {
+        this.id_invernadero = id_invernadero;
+        this.nombre = nombre;
+        this.localizacion = localizacion;
+        this.descripcion = descripcion;
+        this.ids_invernadero_contacto = ids_invernadero_contacto;
+    }
+
     public InvernaderoDto(String nombre, String localizacion, String descripcion, List<SensorDto> sensores, List<Long> ids_invernadero_contacto) {
         this.nombre = nombre;
         this.localizacion = localizacion;

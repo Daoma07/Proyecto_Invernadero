@@ -12,7 +12,7 @@ public interface IFacade {
 
     ResponseFormat createSensor(SensorDto sensorDto);
 
-    SensorDto readSensorSerie(String serie);
+    ResponseFormat readSensorSerie(String serie);
 
     ResponseFormat readAllSensores();
 
